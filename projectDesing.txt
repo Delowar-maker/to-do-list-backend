@@ -1,0 +1,25 @@
+Project Using part:
+  1.Rest API Introduction
+  2.JSON Best Practies
+  3.Request Response Model
+  4.Rest API Basic Best Practies
+  5.Rest API Security Practies
+  6.Express JS REST API Fundamental
+  7.MongoDB Core Fundamental
+  8.Mongoose 
+  9.Documentation
+  10.JWT Auth
+  
+Project Features
+  1.User Registration
+  2.User Login
+  3.User Auth By JWT Token
+  4.User Profile Read
+  5.User Profile Update
+  6.User To-do List Create
+  7.User To-do List read
+  8.User To-do List Update
+  9.User To-do List Delete
+  10.User To-do List complete/cancle Mark
+  11.User To-do List complete/cancle Filter
+  12User To-do List Date Filter
