@@ -46,3 +46,31 @@ exports.CreateToDo = (req, res) => {
         .then(data => res.status(200).json({ status: "success", data }))
         .catch(err => res.status(400).json({ status: "fail", data: err }));
 };
+
+exports.SelectToDo = (req, res) => {
+    const UserName = req.headers['username'];
+
+    ToDoListModel.find({ UserName })
+        .then(data => {
+            res.status(200).json({ status: "success", data });
+        })
+        .catch(err => {
+            res.status(400).json({ status: "fail", data: err });
+        });
+};
+
+
+exports.UpdateToDo = (req, res) => {
+    const { TodoSubject, TodoDescription, _id } = req.body;
+    const TodoUpdateDate = Date.now();
+
+    const PostBody = {
+        TodoSubject,
+        TodoDescription,
+        TodoUpdateDate
+    };
+
+    ToDoListModel.updateOne({ _id }, { $set: PostBody }, { upsert: true })
+        .then(data => res.status(200).json({ status: "success", data }))
+        .catch(err => res.status(400).json({ status: "fail", data: err }));
+};
