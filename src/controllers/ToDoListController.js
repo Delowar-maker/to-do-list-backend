@@ -74,3 +74,18 @@ exports.UpdateToDo = (req, res) => {
         .then(data => res.status(200).json({ status: "success", data }))
         .catch(err => res.status(400).json({ status: "fail", data: err }));
 };
+
+
+exports.UpdateStatusToDo = (req, res) => {
+    const { TodoStatus, _id } = req.body;
+    const TodoUpdateDate = Date.now();
+
+    const PostBody = {
+        TodoStatus,
+        TodoUpdateDate
+    };
+
+    ToDoListModel.updateOne({ _id }, { $set: PostBody }, { upsert: true })
+        .then(data => res.status(200).json({ status: "success", data }))
+        .catch(err => res.status(400).json({ status: "fail", data: err }));
+};

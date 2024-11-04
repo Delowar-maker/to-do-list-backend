@@ -17,11 +17,12 @@ router.post("/UpdateProfile", AuthVerifyMiddleware, ProfileController.UpdateProf
 router.post("/CreateToDo", AuthVerifyMiddleware, ToDoListController.CreateToDo);
 router.get("/SelectToDo", AuthVerifyMiddleware, ToDoListController.SelectToDo);
 router.post("/UpdateToDo", AuthVerifyMiddleware, ToDoListController.UpdateToDo);
+router.post("/UpdateStatusToDo", AuthVerifyMiddleware, ToDoListController.UpdateStatusToDo);
 
 
 
 module.exports = router
 
 
-//44
+//47
 
