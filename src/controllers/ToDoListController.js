@@ -97,3 +97,24 @@ exports.RemoveToDo = (req, res) => {
         .then(data => res.status(200).json({ status: "success", data }))
         .catch(err => res.status(400).json({ status: "fail", data: err }));
 };
+
+exports.SelectToDoByStatus = (req, res) => {
+    const UserName = req.headers['username'];
+    const { TodoStatus } = req.body;
+
+    ToDoListModel.find({ UserName, TodoStatus })
+        .then(data => res.status(200).json({ status: "success", data }))
+        .catch(err => res.status(400).json({ status: "fail", data: err }));
+};
+
+exports.SelectToDoByDate = (req, res) => {
+    const UserName = req.headers['username'];
+    const { FormDate, ToDate } = req.body;
+
+    ToDoListModel.find({
+        UserName,
+        TodoCreateDate: { $gte: new Date(FormDate), $lte: new Date(ToDate) }
+    })
+        .then(data => res.status(200).json({ status: "success", data }))
+        .catch(err => res.status(400).json({ status: "fail", data: err }));
+};
