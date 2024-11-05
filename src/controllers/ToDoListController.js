@@ -89,3 +89,11 @@ exports.UpdateStatusToDo = (req, res) => {
         .then(data => res.status(200).json({ status: "success", data }))
         .catch(err => res.status(400).json({ status: "fail", data: err }));
 };
+
+exports.RemoveToDo = (req, res) => {
+    const { _id } = req.body;
+
+    ToDoListModel.deleteOne({ _id })
+        .then(data => res.status(200).json({ status: "success", data }))
+        .catch(err => res.status(400).json({ status: "fail", data: err }));
+};
